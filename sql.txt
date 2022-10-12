@@ -1,0 +1,64 @@
+
+
+
+
+
+
+SQL AGGREGATE FUNCTION:-
+MIN()
+MAX()
+AVG()
+SUM()
+
+1.create database php_student
+then open it and pass the below query
+2.create table student(stu_id int auto increment primary key,name varchar(50),email varchar(50))
+3.alter  table student add PASSWORD varchar(50)
+3.alter table student add(fees int,passward varchar(50))
+
+4.insert INTO student(name,email,phone)values('abc','abc@gmail.com',2563)
+5.update student set name='xyz',email='xyz@gmail.com',phone=6532 WHERE stu_id=1;
+6.ALTER TABLE student MODIFY passward int(10)//to modify column to new data type like int to var₹char
+7.delete from student where stu_id=1;
+
+8.delete from student where stu_id=2;
+commit
+9.delete from student
+10.truncate table student
+11.select * from student
+12.select name,email from student where stu_id=1
+13.select name,email from student
+14.select max(fees) from student
+15.select min(fees) from student as min_fees from student
+16.select avg(fees) from student as avg(fees)from student
+17.select sum(fees)from student as salary from student
+18.select count(fees) as total from student
+19.select * from student order by name
+20.select * from student order by name desc
+
+RELATIONAL DATABASE
+21.create table country(cid int auto_increment primary key,cname varchar(50))
+22.create table emp(emp_id int auto_increment,name varchar(50),email varchar(50),
+   country int,primary key(emp_id),foreign key(country)  references country(cid))
+
+Sql JOIN:-
+Syntax:-
+select <data column>from <first table>JOIN<second table> on
+ <first tablename.foreign key>=<second tablename.primary key>
+
+21.select * from emp join country on emp.country=country.cid
+22.select *.emp from emp left join country on emp.contry=country.cid
+23.select *.emp from emp right country on emp.contry=country.cid
+24.create index myindex on emp(name)
+25.show index from emp
+26.create view myview as select email from emp
+
+27.DELIMITER //
+   CREATE PROCEDURE demo_pro()
+   BEGIN
+   SELECT * from emp;
+   END;;
+
+
+
+22.select emp.name,email,country.cname from emp join country on emp.country=country.cid
