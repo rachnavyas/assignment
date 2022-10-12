@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Property</title>
+    
+</head>
+<body>
+    
+    <form method="post" action="form.htm"> 
+        <table border="2" align="center" cellpadding="10"cellspacing="10">
+             <caption><h1><U>Inquiry Form</U></h3></caption>
+             <tr>
+                <td>YOU ARE:-</td>
+                <td><input type="radio" name="client" value="individual">INDIVIDUAL
+                <input type="radio" name="client" value="broker">BROKER</td>
+             </tr>
+             <tr>
+                <td>NAME:</td>
+                <td>
+                    <input type="text" id="name" name="name" required
+                           minlength="4" maxlength="8" size="10"> </td>
+                </tr>
+              <tr>
+                <td>EMAIL:</td>
+                <td><input type="email" name="email"  >
+                </td>
+              </tr>  
+              <tr>
+                <td>MOBILE:</td>
+                <td><input type="number" SIZE="10"></td>
+              </tr>
+              <tr>
+                <td>SALE TYPE:</td><td>
+                <select name="saletype">
+                    <option value="ready">Ready To Move</option>
+                    <option value="resale">Resale</option>
+                     <option value="underconst">Under Construction</option>
+                     </select>
+                    </td>
+            </tr>
+            <tr>
+                <td>BHK TYPE</td>
+                <td><select name="bhk">
+                    <option value="1bhk">1BHK</option>
+                    <option value="2bhk">2BHK</option>
+                    <option value="3bhk">3BHK</option>
+                    <option value="pent">3BHK PENT HOUSE</option>
+                </select></td>
+            </tr>
+        <tr>
+            <td>
+                BUDGET
+            </td>
+            <td><select name="budget">
+                <option value="30to50">30 Lacs to 50 Lacs</option>
+                <option value="51to60">51 Lacs to 60 Lacs</option>
+                <option value="610to80">61 Lacs to 80 Lacs</option>
+                <option value="above80">Above 80 Lacs</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>POSSESION STATUS:</td>
+            <td><input type="checkbox" name="postatus" value="ready">Ready To Move
+                <input type="checkbox" name="postatus" value="1year">In 1 Year<br>
+                <input type="checkbox" name="postatus" value="2year">In 2 Year
+                
+                <input type="checkbox" name="postatus" value="3year">In 3 year<br>
+                <input type="checkbox" name="postatus" value="beyond3">Beyond 3 Year</td>
+        </tr>
+        <tr>
+            <td>LISTED BY:</td>
+            <td>
+                <input type="checkbox" name="listed" value="owner">OWNER
+                <input type="checkbox" name="listed" value="broker">BROKER
+                <input type="checkbox" name="listed" value="builder">BUILDER
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+             
+            <b>    <input type="submit" name="submit" value="Seach" style="font-size : 18px;font-weight: bold">
+             <input type="reset" name="reset" value="Reset" style="font-size : 18px;font-weight: bold;">
+          </tr>    
+
+</body>
+</html>
