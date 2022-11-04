@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form_css.css">
+</head>
+<body>
+  <div>
+     Step 1: Your details
+  </div>
+ 
+<form method="post" action="formsubmit.htm">
+  <div> Name&nbsp;&nbsp;&nbsp;<input type="text" name="name" ></div>
+  Email<input type="email" name="email"> 
+  Phone<input type="number" name="phnum"></div>
+  Step 2: Delivery Address
+  Address<textarea name="add"></textarea>
+  Post code<input type="number" name="postcode" >
+  Country<input type="text" name="country">
+  Step 3: Card details
+  Card Type<br>
+  <input type="radio" name="card" value="visa">VISA
+  <input type="radio" name="card" value="amex">AmEx
+  <input type="radio" name="card" value="mastercard">Mastercard
+  Card number <input type="number" name="cardnum" size="16">
+  Security code<input type="number" name="scode">
+  Name on card <input type="text" name="cardonname">
+  <input type="submit" name="submit" value="BYE IT!"
+</form>
+</body>
+</html>
