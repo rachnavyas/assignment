@@ -1,0 +1,220 @@
+Q1:    What Is Object Oriented Programming? 
+
+Ans:- Object-Oriented Programming. Procedural programming is about writing procedures or functions 
+      that perform operations on the data,while object-oriented programming is about creating 
+      objects that contain both data and functions.
+
+Q2:    What Are Properties Of Object Oriented Systems?
+A:    Properties of OOP are Abstraction,Inheritance,Polymorphism.
+
+Q3:    What Is Difference Between Class And Interface?
+A:    A class can be instantiated i.e, objects of a class can be created.An Interface cannot
+      instantiated i.e,objects cannot be created.classes doest support multiple inheritance.Interface 
+      supports multiple inheritance.For inheritance class used extends keyword to derive a class from another class.
+      In Interface,implements keyword is used for inheritance in another class.
+      
+Q4:    What Is Overloading?
+A:    Overloading ia an Object Oriented concept in which two or more methods have the same method name with different arguments or parameters(compulsory)
+      and return type(not necessary).It can be done as aConstructor Overloading,Operator Overloading and Method Overloading.
+
+Q5:   What Is T_PAAMAYIM_NEKUDOTAYIM (Scope Resolution Operator (::) with 
+     Example.
+A:   T_PAAMAYIM_NEKUDOTAYIM is parse error:syntax error,unexpexted'::'(T_PAAMAYIM_NEKUDOTAYIM)of scope resolution.Scope Resolution Operator(also called
+     PAAMAYIM NEKUDOTAYIM)or in simple terms,the double colon,is a token that allows access to static,constant and overridden properties or methods of a class.
+     Example:<?php
+     class A
+     {
+       static $var="static value";
+       const r="constant value";
+       static function demo()
+      {
+        self::$var;
+        echo"demo function";
+      }}
+     class B extends A
+     {
+      static function foo(){
+      echo parent::$var;
+      echo"<br>";
+      echo pArent::r;
+      echo"<br>";
+      echo parent::demo();
+     echo"<br>";
+     echo"this is test method";
+    }
+   }
+   B::foo();
+
+Q6: What are the differences between abstract classes and interfaces?
+
+A: The difference between interfaces and abstract classes are.
+   Interfaces cannot have properties, while abstract classes can.
+   All interface methods must be public, while abstract class methods is public or protected
+   All methods in an interface are abstract, so they cannot be implemented in code and the 
+   abstract keyword is not necessary.Abstract class define as Abstract Class <class name> and Interface define as Interface <interfacename>
+
+Q7: Define Constructor and Destructor?
+
+A: Constuctor:-
+   **********
+   An object oriented programming terminology, constructor is a method defined inside a class is called automatically at the time of 
+   creation of object.Purpose of a constructor method is to initialize the object. In PHP, a method of special name __construct acts 
+   as a constructor.In constructor, class and object name is same.no need to define object for method.
+   Syntax:__construct(mixed arguments)
+ Destructor:-
+ ************
+ Destructor is a method automatically as soon as garbage collector fins that a particular object has no more references.
+ In PHP, destructor method is named as __destruct. During shutdown sequence too, objects will be destroyed. Destructor method doesn't take any arguments,
+ neither does it return any data type.
+ Syntax:__destruct()
+
+Q8:How to Load Classes in PHP?
+
+A:PHP can load class files automatically on demand (No explicit require statements are needed); The file name must match the case of
+ the terminating class name (each class in a separate file); The directory name must match the case of the namespace names.
+ If your code has an existing __autoload() function then this function must be explicitly registered on the __autoload queue. This is because spl_autoload_register()
+ will effectively replace the engine cache for the __autoload() function by either spl_autoload() or spl_autoload_call().
+
+ If there must be multiple autoload functions, spl_autoload_register() allows for this. 
+ It effectively creates a queue of autoload functions, and runs through each of them in the order they are defined. 
+ By contrast, __autoload() may only be defined once.
+
+Q9:How to Call Parent Constructor? 
+
+A:In order to run a parent constructor, a call to parent::__construct() within the child constructor is required. If the child does not define a constructor then
+ it may be inherited from the parent class just like a normal class method (if it was not declared as private).
+ example:
+         <?php
+           class A
+           {
+ 		 function  __construct()
+  	         {
+                   echo "parent constructor<br>";
+                 }
+            }
+           class B extends A
+           {
+                function __construct()
+                {
+                  echo"child constructor<br>";
+                   parent::__construct();
+                 }
+           }
+	$obj=new B;
+        ?>
+
+Q10: Are Parent Constructor Called Implicitly When Create An ObjectOf Class?
+
+
+A:Parent constructors are not called implicitly if the child class defines a constructor. 
+  In order to run a parent constructor, a call to parent::__construct() within the child 
+  constructor is required.
+
+Q11: What Happen, If Constructor Is Defined As Private Or Protected?
+
+A:If Constructor is Defined As Private Or Protected,prevent it from being called externally.
+   only a static method will be able to instantiate the class. Because they are in the same 
+   class definition they have access to private methods, even if not of the same object instance.
+
+Q12:What are PHP Magic Methods/Functions? List them.
+
+
+A:Magic methods are special methods which override PHP's default's action when certain 
+  actions are performed on an object.
+  The following method names are considered magical: __construct(), __destruct(), __call(),
+  __callStatic(), __get(), __set(), __isset(), __unset(), __sleep(), __wakeup(), __serialize(), 
+  __unserialize(), __toString(), __invoke(), __set_state(), __clone(), and __debugInfo().
+
+Q13:Write program for Static Keyword in PHP? 
+
+A:<?php
+    class MyClass 
+	{
+         public static $str = "Hello World!";
+  	 public static function hello() 
+          {
+          echo "This is static function";
+          }
+        }
+        echo MyClass::$str;
+        echo "<br>";
+        echo MyClass::hello();
+     ?>
+
+Q14:Create multiple Traits and use it in to a single class?
+
+A: <?php
+	trait A
+	{
+    	   function foo()
+           {
+            echo"Trait A<br>";
+           }
+         }
+       trait B
+      {
+          function test()
+          {
+          echo"Trait B<br>";
+          }
+      }
+      trait C
+     {
+       function demo()
+       {
+       echo"Trait C<br>";
+       }
+    }
+     class D 
+     {
+       use A,B,C;
+       function demo1()
+       {
+        echo"class D<br>";
+       }
+     }
+    $obj=new D;
+    $obj->foo();
+    $obj->test();
+    $obj->demo();
+    $obj->demo1();
+  ?>
+
+Q15:Write PHP Script of Object Iteration?
+
+A:<?php
+	class A
+	{
+    	public $a;
+    	private $b;
+    	protected $c;
+    	function __construct()
+	{
+          $this->a="public value";
+          $this->b="private value"; 
+         $this->c="protected value";
+
+        }
+       function test()
+       {
+    	foreach($this as $r)
+    	{
+        echo $r."<br>";
+
+    	}
+       }
+
+     }
+  $obj=new A;
+   $obj->test();
+    foreach($obj as $t)
+     {
+       echo $t."<br>";
+     }
+ ?>
+
+Q16:Use of The $this keyword.
+
+A:The this keyword refers to the current object in a method or constructor.
+ The most common use of the this keyword is to eliminate the confusion between 
+ class attributes and parameters with the same name.
