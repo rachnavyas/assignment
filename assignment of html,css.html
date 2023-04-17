@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .body {
+      background-color: rgb(139, 197, 59);
+
+    }
+
+    .fontcolor {
+      color: rgb(38, 101, 38);
+      font-weight: bolder;
+      font-weight: bolder;
+      font-size: 25px;
+
+    }
+
+    .font {
+      font-size: 20px;
+      color: rgb(38, 101, 38);
+      font-weight: bold;
+    }
+
+    fieldset {
+      align-content: center;
+      width: 50%;
+      border-style:groove;
+      border-color: rgb(108, 156, 40);
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      background-color: rgb(139, 197, 59);
+      resize: both;
+
+    }
+
+    form {
+      border: none;
+      margin: 0px 100px 0px 400px;
+      align-content: center;
+    }
+
+    .border {
+      border: 1px;
+    }
+
+    .label1 {
+      border-width: 0px;
+      border-style: none;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 0px 0px 0px 0px;
+      margin: 0px 0px 0px 0px;
+      background-color: rgb(204, 228, 168);
+    }
+
+    .label {
+      border-style: hidden;
+      border-width: 1px;
+      border-style: groove;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 3px 60px 3px 3px;
+      margin: 0px 0px 0px 0px;
+      background-color: rgb(204, 228, 168);
+    }
+.buyit
+{
+  border-style: hidden;
+      box-sizing: content-box;
+      border-style: groove;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 3px 60px 3px 3px;
+      margin: 0px 0px 0px 150px;
+      background-color:rgb(2, 65, 2);
+      align-items: center;
+      width:fit-content
+}
+
+    .bgcolor {
+      background-color: rgb(204, 228, 168);
+    }
+
+    .padding {
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-style: none;
+      margin-right: 0px;
+      margin: 0px 0px 0px 50px;
+      
+      font-size: 15px;
+      height: 30px;
+      padding:0px 30px 0px 0px;
+      
+    }
+
+    .textarea {
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-style: none;
+      margin-right: 30px;
+      margin-left: 30px;
+      font-size: 15px;
+    }
+    .color
+    {
+      background:none;
+      font-weight: bolder;
+      color:white;
+      font-size: 20px;
+      margin-left: 50px;
+    }
+    div
+    {
+      resize: both;
+    }
+    form
+    {
+    resize: both;
+    }
+    ::placeholder
+    {
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      color:grey;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lable1">
+    <form>
+      <fieldset>
+        <h2 class="fontcolor">Step 1:Your details</h2>
+        <div class="label">
+          <lable for="name" class="font"> Name:
+
+
+            <input type="text" name="name" size="20" class="padding" style="margin-left: 72px;" placeholder="First and Last name">
+          </lable>
+        </div>
+
+        <div class="label">
+          <lable for="email" class="font">Email:
+          </lable>
+          <input type="text" name="email" size="20" class="padding" style="margin-left: 72px;" placeholder="example@domain.com">
+        </div>
+
+        <div class="label">
+          <lable for="phone" class="font">
+            Phone:
+          </lable>
+          <input type="text" name="phone" size="20" class="padding" style="margin-left: 72px;" placeholder="Eg. +447500000000">
+        </div>
+
+
+        <h2 class="fontcolor">Step 2:Delivery Address</h2>
+        <div class="label">
+          <lable for="address" class="font">Address:
+          </lable>
+          <textarea name="address" rows="4" cols="25" class="textarea" style="margin-left: 60px;"></textarea></style>
+        </div>
+
+        <div class="label">
+          <lable for="postcode" class="font">Postcode:
+          </lable>
+          <input type="text" name="email" size="22" class="padding"  style="margin-left: 59px;">
+        </div>
+
+        <div class="label">
+          <lable for="phone" class="font">
+            Country:
+          </lable>
+          <input type="text" name="phone" size="22" class="padding"  style="margin-left: 60px;">
+        </div>
+        <h2 class="fontcolor">Step 3:Card details</h2>
+        <div class="label">
+          <lable for="card" class="font"> Card Type<br>
+            &nbsp;&nbsp;
+    
+    <input type="radio" name="card" value="visa">
+    <img src="visa.png" height="25px" width="40px">Visa&nbsp;&nbsp;
+   
+    <input type="radio" name="card" value="amex">
+   <img src="amex.png" height="25px" width="40px">
+   AmEx&nbsp;
+            
+            <input type="radio" name="card" value="master">
+            <img src="mastercard.png" height="25px" width="40px">Mastercard &nbsp;&nbsp;
+          </lable>
+        </div>
+
+        <div class="label">
+          <lable for="cardno" class="font">Card number:
+          </lable>
+          <input type="text" name="cardno" size="22" class="padding"  style="margin-left: 29px;">
+        </div>
+
+        <div class="label">
+          <lable for="security" class="font">
+            Security Code:
+          </lable>  
+          <input type="text" name="security" size="22" class="padding"  style="margin-left: 27px;">
+        </div>
+
+        <div class="label">
+          <lable for="nameoncard" class="font">
+            Name on Card:
+          </lable>
+          <input type="text" name="nameoncard " size="22" class="padding"  style="margin-left: 24px;">
+        </div>
+        <div class="buyit">
+        <input type="submit" name="bueit" value="BUY IT!"class="color">
+        </div>
+
+
+    </form>
+
+
+
+
+    <div>
+</body>
+
+</html>
