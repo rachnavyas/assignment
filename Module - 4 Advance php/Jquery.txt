@@ -1,0 +1,367 @@
+1) What is jQuery?
+jQuery is a fast and lightweight JavaScript library that simplifies HTML document traversing, 
+event handling, animating,and AJAX interactions for rapid web development. It was first released in 2006
+and has become one of the most popular libraries for web development due to its ease of use and extensive features. 
+Jquery allows to less code while achieving more functionality and create dynamic, interactive web pages.
+
+2) Which is the starting point of code execution in jQuery?
+In jQuery, the starting point of code execution is typically the $(document).ready() method.
+This method is a jQuery event that fires when the DOM (Document Object Model) has finished loading in the browser.
+the Syntax is:
+     $(document).ready(function() 
+     {
+         // jQuery code goes here
+     });
+All jQuery code inside this method to ensure that the code is executed only after the page has fully loaded.
+
+3) Document Load Vs Window. Load() jQuery?
+A: In jQuery, there are two events that can be used to execute code when a web page has finished loading: $(document).ready() and $(window).load().
+
+The $(document).ready() event fires when the DOM (Document Object Model) has finished loading, while the $(window).load() event fires when all the 
+resources on the page, including images and scripts, have finished loading.
+Here are some key differences between the two events:
+
+* $(document).ready() is triggered as soon as the DOM is ready, even if images and other resources are still being loaded.
+  On the other hand, $(window).load() is only triggered after all the resources on the page have finished loading.
+* $(document).ready() is faster and generally preferred for most cases, as it allows for faster page rendering and 
+  better user experience. $(window).load(), on the other hand, may cause a noticeable delay in the execution of the code 
+  if the page contains a large number of images or other resources.
+* $(document).ready() can be used to execute code as soon as the DOM is ready, even if the page is not fully loaded yet.
+  This can be useful for certain types of functionality, such as showing a loading animation while the rest of the page is being loaded.
+  $(window).load(), on the other hand, is only triggered once the page has fully loaded, so it may not be suitable for certain types of
+ functionality.
+
+4)What is the difference between prop and attr?
+A: In jQuery, prop() and attr() are two methods that are used to get or set the properties or attributes of HTML elements.
+
+     attr() is used to get or set the values of an HTML element's attributes:
+      For example, To get the value of the href attribute of a link element:-
+        var hrefValue = $('a').attr('href');
+
+         To set the value of the href attribute:
+         $('a').attr('href', 'https://example.com');
+
+     On the other hand, prop() is used to get or set the properties of an HTML element. These properties are usually 
+     boolean values that indicate whether a particular attribute is present or not. 
+     For example, to get the value of the checked property of a checkbox element :-    
+     
+     var isChecked = $('input[type="checkbox"]').prop('checked');
+
+     To set the value of the checked property:-
+     $('input[type="checkbox"]').prop('checked', true);
+    The main difference between attr() and prop() is that attr() works with the HTML attributes 
+    of an element, while prop() works with the properties of the element's underlying DOM object. 
+    In general, prop() is preferred for working with boolean properties such as checked, disabled, and readonly, 
+    while attr() is preferred for working with attributes such as href, src, and title.
+
+
+5) Explain Difference Between JQuery And JavaScript?
+A: jQuery is a JavaScript library, which means that it is built on top of the JavaScript language and provides additional 
+   functionality and convenience for working with JavaScript code. Here are some of the main differences between jQuery and 
+   plain JavaScript:
+
+
+ (1)Syntax: jQuery provides a simpler and more concise syntax for working with DOM elements and handling events.
+ For example, instead of using document.getElementById() to select an element by its ID, you can use the 
+ jQuery selector $() like this: $('#myElement'). Similarly, instead of using the addEventListener() method to 
+ attach an event handler function to an element, you can use the jQuery .on() method like this:
+ $('button').on('click', function() { ... }).
+ (2)Cross-browser compatibility: jQuery abstracts away the differences between different web browsers, 
+   making it easier to write code that works consistently across all browsers. This is particularly important when 
+   dealing with browser-specific quirks and bugs.
+ (3)AJAX: jQuery provides a simplified API for making AJAX requests, allowing you to retrieve and send data to a 
+    server without reloading the page. 
+ (4)Plugins: jQuery has a large ecosystem of third-party plugins that can be easily integrated into your code to 
+    provide additional functionality such as sliders, carousels, date pickers, and many others.
+ (5)Performance: Plain JavaScript code is generally faster than jQuery code, especially when dealing with simple
+    operations such as selecting and manipulating DOM elements. However, the performance difference is often negligible 
+    for most web applications. 
+ 
+        jQuery is a JavaScript library that provides a simpler syntax and cross-browser compatibility, 
+        plain JavaScript gives you more control and performance
+
+6)How We Can Select The Specified <li> Element From The ListOf <li> 
+  Elements In <ul>?
+A: Here's an example code snippet that selects the second <li> element from a <ul> element with the ID 
+   myList:
+   <ul id="myList">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+
+   <script src="jquery.js"></script>
+    <script>
+       $(document).ready(function()
+       {
+        var secondLi = $('ul#myList').children().eq(1);
+        console.log(secondLi.text()); // Outputs "Item 2"
+        });
+    </script>
+  In this code, the $('ul#myList') selector targets the <ul> element with the ID myList. The .children() method 
+  selects all child elements of the <ul> element, which are the <li> elements. Finally, the .eq(1) method selects 
+  the second <li> element (since array indices start from 0). The secondLi variable now holds a jQuery object that
+  represents the second <li> element.
+
+
+7) In <table> Design Change The Color Of Even <tr> Elements To “green”And 
+  Change The Color Of Odd <tr> Elements To “blue” Color? Give An Example Code?
+A: <table>
+  <tr>
+    <th>Header 1</th>
+    <th>Header 2</th>
+  </tr>
+  <tr>
+    <td>Row 1, Column 1</td>
+    <td>Row 1, Column 2</td>
+  </tr>
+  <tr>
+    <td>Row 2, Column 1</td>
+    <td>Row 2, Column 2</td>
+  </tr>
+  <tr>
+    <td>Row 3, Column 1</td>
+    <td>Row 3, Column 2</td>
+  </tr>
+ </table>
+   
+    <script src="jquery.js"></script>
+    <script>
+  $('table tr:even').css('background-color', 'green');
+  $('table tr:odd').css('background-color', 'blue');
+  </script>
+
+8)How We Can Implement Animation Effects In Jquery?
+A: <!DOCTYPE html>
+    <html>
+  <head>
+	<title>jQuery Animation Example</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		#myElement {
+			background-color: blue;
+			width: 100px;
+			height: 100px;
+			margin-left: 0;
+		}
+	</style>
+  </head>
+     <body>
+	    <div id="myElement"></div>
+	    <button id="animateButton">Animate</button>
+        <script>
+		$(document).ready(function()
+         {
+			$('#animateButton').click(function()
+             {
+				$('#myElement').animate(
+                    {
+					width: '300px',
+					height: '200px',
+					marginLeft: '50px'
+				}, 1000);
+			});
+		});
+	    </script>
+    </body>
+   </html>
+
+9)Apply jQuery validation using library.
+A: <html>
+    <head>
+       <title>jQuery Validation Example</title>
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+   </head>
+
+   <body>
+        <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+        <input type="submit" value="Submit">
+        </form>
+    </body>
+
+    $(document).ready(function()
+     {
+     $('#myForm').validate(
+    {
+     rules:
+      {
+        name:
+         {
+        required: true,
+        minlength: 3
+         },
+       email:
+        {
+        required: true,
+        email: true
+         }
+       },
+    messages:
+       {
+        name: 
+        {
+        required: "Please enter your name",
+        minlength: "Your name must be at least 3 characters long"
+        },
+        email:
+        {
+        required: "Please enter your email address",
+        email: "Please enter a valid email address"
+        }
+      }
+    });
+  });
+
+
+10)Create custom dynamic function for require field validator.
+A:  <form id="myForm">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name"><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br>
+
+  <label for="agree">I agree:</label>
+  <input type="checkbox" id="agree" name="agree"><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script>
+  $(document).ready(function() 
+  {
+    // Custom validator function for checking required field based on checkbox value
+    $.validator.addMethod("conditionalRequired", function(value, element, param) {
+      var checkbox = $(param);
+      if (checkbox.prop("checked")) {
+        return value.trim() !== "";
+      }
+      return true;
+    }, "This field is required if you agree.");
+
+    // Set up validation rules
+    $('#myForm').validate({
+      rules: {
+        name: {
+          conditionalRequired: "#agree"
+        },
+        email: {
+          conditionalRequired: "#agree",
+          email: true
+        }
+      },
+      messages: {
+        name: {
+          conditionalRequired: "Please enter your name"
+        },
+        email: {
+          conditionalRequired: "Please enter your email address",
+          email: "Please enter a valid email address"
+        }
+      }
+    });
+  });
+</script>
+
+11)Get state data by country selection (Ajax).
+A:<html>
+   <head>
+	<title>Get State Data by Country Selection</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#country").on("change", function() {
+				var countryId = $(this).val();
+				$.ajax({
+					url: "get_state_data.php",
+					type: "POST",
+					data: {country_id: countryId},
+					dataType: "json",
+					success: function(data) {
+						var stateSelect = $("#state");
+						stateSelect.empty();
+						stateSelect.append($('<option>', {value:'', text:'Select state'}));
+						$.each(data, function(key, value) {
+							stateSelect.append($('<option>', {value:value.id, text:value.name}));
+						});
+					},
+					error: function(xhr, textStatus, errorThrown) {
+						alert("Error: " + errorThrown);
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<label for="country">Country:</label>
+	<select id="country">
+		<option value="">Select country</option>
+		<option value="1">USA</option>
+		<option value="2">Canada</option>
+		<option value="3">Mexico</option>
+	</select>
+
+	<label for="state">State:</label>
+	<select id="state">
+		<option value="">Select state</option>
+	</select>
+</body>
+</html>
+
+
+12)Image uploading with preview.
+A:
+    <!DOCTYPE html>
+    <html>
+    <head>
+	<title>Image Uploading with Preview</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		#preview {
+			max-width: 200px;
+			max-height: 200px;
+		}
+	</style>
+    </head>
+    <body>
+	<form>
+		<input type="file" id="image" name="image">
+		<button type="button" id="upload">Upload</button>
+	</form>
+	<div id="preview"></div>
+	<script>
+		$(document).ready(function() {
+			// When the upload button is clicked
+			$('#upload').click(function() {
+				var formData = new FormData();
+				formData.append('image', $('#image')[0].files[0]);
+
+				$.ajax({
+					url: 'upload.php',
+					type: 'POST',
+					data: formData,
+					cache: false,
+					contentType: false,
+					processData: false,
+					success: function(response) {
+						// Show the uploaded image in the preview div
+						$('#preview').html('<img src="' + response + '">');
+					}
+				});
+			});
+		});
+	</script>
+    </body>
+    </html>
+
+
+
+
