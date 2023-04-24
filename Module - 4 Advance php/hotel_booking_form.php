@@ -25,19 +25,19 @@
     }
    
     
-    *
-    {
-        margin: 0;
-        padding: 0;
-    }
+    
     #div
     {
-        padding-top: 100px;
+        padding-top: 80px;
        padding-left: 800px;
+       width:300px;
+       height:600px;
+       color:none;
+    
     }
     td{
         background-color:lightgrey;
-        padding: 5px;
+        
         
     }
     input
@@ -73,11 +73,21 @@
     .mycls{
         display: none;
     }
+    #booking_slots
+    {
+        display:none;
+    }
     </style>
+
+        
+    
+
+    </script>
+    
 </head>
 <body>
     <div class="background-image">
-        <div id="div">
+        <div id="div" style="height:600px;">
         <form method="post" name="booking" onsubmit="return validate()">
         <table>
             <tr>
@@ -133,21 +143,34 @@
             </tr>
             <tr>
                 <td>
-              <input type="radio" name="day" value="full" style="width:20px;" id="fullday">FullDay
-              <input type="radio" name="day" value="Half" style="width:20px;" id="halfday"> HalfDay 
-              <input type="radio" name="day" value="custom" style="width:20px;"
+              <input type="radio" name="booking_type" value="full" style="width:20px;" checked>FullDay
+              <input type="radio" name="booking_type" value="half_day" style="width:20px;" > HalfDay 
+              <input type="radio" name="booking_type" value="custom" style="width:20px;"
               id="custom">Custom
                 </td>
             </tr>
             <tr>
-                <td class="mycls">
-                   
-                    CHECKIN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    CHECKOUT
+                <td  id="booking_slots" >Select booking slot:
+         
+         
+    <select name="booking_slot">
+    <option value="">Select a slot</option>
+            <option value="first_half">First Half (8AM to 6PM)</option>
+            <option value="second_half">Second Half (7PM to 7AM)</option>
+        </select>
+        
+</td>
+</tr>
+           
+            <tr>
+                <td>
+                   CHECK IN CHECK OUT
                 </td>
 </tr>
+
+    
 <tr>
-    <td class="mycls">
+    <td>
         <input type="date" name="date" min="" max="" style="width:100px;">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="date" name="date" min="" max="" style="width:100px;">
@@ -166,4 +189,57 @@
         </div>
         </div>
 </body>
+<script >
+    $(function()
+     {
+    $('input[name="booking_type"]').change(function() 
+    {
+        var booking_type = $(this).val();
+        if (booking_type == 'half_day') {
+            $('#booking_slots').show();
+        } else {
+            $('#booking_slots').hide();
+        }
+    });
+    $('form').submit(function(event) {
+        event.preventDefault();
+        var booking_type = $('input[name="booking_type"]:checked').val();
+        var checkin_date = $('input[name="checkin_date"]').val();
+        var checkout_date;
+        var booking_slot;
+        if (booking_type == 'full_day') {
+            checkout_date = $('input[name="checkout_date"]').val();
+        } else if (booking_type == 'half_day') {
+            checkout_date = checkin_date;
+            booking_slot = $('select[name="booking_slot"]').val();
+        } else {
+            // Custom booking
+            // You can add your custom code here to handle custom bookings
+            return;
+        }
+        // Perform validation and send Ajax request to book the room
+        $.ajax({
+            type: 'POST',
+            url: 'book_room.php',
+            data: JSON.stringify({
+                booking_type: booking_type,
+                checkin_date: checkin_date,
+                checkout_date: checkout_date,
+                booking_slot: booking_slot
+            }),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function(response) {
+                // Handle the response from the server
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                // Handle the error
+                console.log(xhr.responseText);
+            }
+        });
+    });
+});
+</script>
+
 </html>
