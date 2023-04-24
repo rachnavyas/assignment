@@ -212,11 +212,7 @@
         } else if (booking_type == 'half_day') {
             checkout_date = checkin_date;
             booking_slot = $('select[name="booking_slot"]').val();
-        } else {
-            // Custom booking
-            // You can add your custom code here to handle custom bookings
-            return;
-        }
+        } 
         // Perform validation and send Ajax request to book the room
         $.ajax({
             type: 'POST',
@@ -230,7 +226,7 @@
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             success: function(response) {
-                // Handle the response from the server
+              
                 console.log(response);
             },
             error: function(xhr, status, error) {
