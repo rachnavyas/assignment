@@ -18,4 +18,5 @@ Route::get('/login',[module7controller::class,'login'])->name('login');
 Route::get('/register',[module7controller::class,'register'])->name('register');
 Route::get('/aboutus',[module7controller::class,'view_aboutus'])->name('aboutus');
 Route::get('/contactus',[module7controller::class,'view_contactus'])->name('contactus');
-
+Route::get('/img_upload',[module7controller::class,'img'])->name('img');
+Route::post('/imgs',[module7controller::class,'store_img'])->name('img_upload');
