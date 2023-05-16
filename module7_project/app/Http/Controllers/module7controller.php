@@ -49,17 +49,19 @@ class module7controller extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function img()
     {
-        //
+        
+          return view('img_upload');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function store_img(Request $request)
     {
-        //
+      
+        return $request->file('file')->store('images');
     }
 
     /**
